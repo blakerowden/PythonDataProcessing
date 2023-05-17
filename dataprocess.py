@@ -34,6 +34,9 @@ def compute_fft(x) -> tuple:
     X = np.fft.fft(x)
     X_mag = np.abs(X) / N
     freqs = np.linspace(0, (N - 1) * Fs / N, N)
+    # Print the four highest peak frequency
+    idx = np.argsort(X_mag)[::-1]
+    print("The two highest peak frequency are: ", freqs[idx[0]], freqs[idx[3]])
     return X_mag, freqs
 
 
